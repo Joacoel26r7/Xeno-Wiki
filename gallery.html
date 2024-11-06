@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery and Forum</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #000000, #691010); /* Background gradient */
+            color: #fff; /* White text */
+            margin: 0;
+            padding: 20px;
+        }
+        
+        article {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid #FFD700; /* Golden border */
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 20px rgba(255, 215, 0, 0.5); /* Golden shadow */
+            backdrop-filter: blur(10px); /* Blur effect */
+            transition: transform 0.3s;
+        }
+
+        h2, h3 {
+            color: #FFD700; /* Golden color */
+            text-align: center; /* Centering titles */
+        }
+
+        section {
+            margin-bottom: 30px;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.7); /* Semi-transparent dark background */
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .image-gallery {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center; /* Centering images */
+        }
+
+        .image-gallery video, .image-gallery img {
+            width: 30%; /* Width of video and image */
+            max-width: 100%;
+            border-radius: 10px;
+            cursor: pointer; /* Change cursor on hover */
+            transition: transform 0.3s; /* Smooth transition */
+        }
+
+        .image-gallery video:hover, .image-gallery img:hover {
+            transform: scale(1.05); /* Zoom effect on hover */
+        }
+
+        #forum {
+            margin-top: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #FFD700;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff; /* Text color in textarea */
+            font-size: 16px; /* Larger font size */
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #FFD700;
+            color: #000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px; /* Font size on button */
+            transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
+        }
+
+        button:hover {
+            background-color: #FFC107;
+            transform: scale(1.05); /* Zoom effect on button */
+        }
+
+        .comments {
+            margin-top: 15px;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.7); /* Semi-transparent background for comments */
+            border-radius: 5px;
+            max-height: 200px; /* Max height for comments container */
+            overflow-y: auto; /* Vertical scroll if many comments */
+        }
+
+        .comments p {
+            color: #fff; /* Text color for comments */
+            margin: 5px 0; /* Spacing between comments */
+        }
+
+        .fullscreen-button {
+            display: block;
+            margin: 10px auto;
+            background-color: #FFD700;
+            color: #000;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
+        }
+
+        .fullscreen-button:hover {
+            background-color: #FFC107;
+            transform: scale(1.05); /* Zoom effect on button */
+        }
+
+        nav {
+            text-align: center; /* Centering navigation menu */
+            margin-bottom: 20px;
+        }
+
+        nav a {
+            color: #FFD700; /* Golden color for links */
+            text-decoration: none; /* No underline */
+            margin: 0 15px; /* Spacing between links */
+            font-size: 18px; /* Font size for links */
+        }
+
+        nav a:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html">Home</a>
+</nav>
+
+<article id="gallery">
+    <h2>Image Gallery and Discussion Forum</h2>
+
+    <section>
+        <h3>Photo and Video Gallery</h3>
+        <div class="image-gallery">
+            <img src="media/1.jpeg" alt="Image 1">
+            <video src="media/videoplayback (1) (online-video-cutter.com).mp4" alt="Life Cycle" preload="metadata"></video>
+            <video src="media/Alien Face hugger Scenes.mp4" preload="metadata"></video>
+        </div>
+    </section>
+
+    <section id="forum">
+        <h3>Discussion Forum</h3>
+        <form id="commentForm">
+            <textarea id="commentInput" placeholder="Write your comment here..."></textarea>
+            <button type="submit">Send</button>
+        </form>
+        <div class="comments" id="commentsContainer"></div>
+    </section>
+</article>
+
+<script>
+    // Function to load and display comments
+    function loadComments() {
+        const comments = JSON.parse(localStorage.getItem('comments')) || [];
+        const commentsContainer = document.getElementById('commentsContainer');
+        commentsContainer.innerHTML = comments.map(comment => `<p>${comment}</p>`).join('');
+    }
+
+    // Function to save a new comment
+    document.getElementById('commentForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const commentInput = document.getElementById('commentInput');
+        const comment = commentInput.value.trim();
+        if (comment) {
+            const comments = JSON.parse(localStorage.getItem('comments')) || [];
+            comments.push(comment);
+            localStorage.setItem('comments', JSON.stringify(comments));
+            commentInput.value = '';
+            loadComments();
+        }
+    });
+
+    // Function to play/pause video on click
+    const videos = document.querySelectorAll('video');
+    videos.forEach(video => {
+        video.addEventListener('click', function() {
+            // Pause all videos
+            videos.forEach(v => {
+                if (v !== video) {
+                    v.pause();
+                }
+            });
+            // Play or pause the clicked video
+            if (video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        });
+
+        // Add fullscreen button
+        const fullscreenButton = document.createElement('button');
+        fullscreenButton.innerText = 'Fullscreen';
+        fullscreenButton.className = 'fullscreen-button';
+        video.parentElement.appendChild(fullscreenButton);
+
+        fullscreenButton.addEventListener('click', function() {
+            if (video.requestFullscreen) {
+                video.requestFullscreen();
+            } else if (video.webkitRequestFullscreen) { // Safari
+                video.webkitRequestFullscreen();
+            } else if (video.msRequestFullscreen) { // IE11
+                video.msRequestFullscreen();
+            }
+        });
+    });
+
+    // Load comments on page load
+    window.onload = loadComments;
+</script>
+
+</body>
+</html>

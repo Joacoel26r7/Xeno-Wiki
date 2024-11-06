@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alien Trivia and Games</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #000000, #691010);
+            color: #FFFFFF;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        h2 {
+            color: #FFD700;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+        .section {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid #FFD700;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 20px rgba(255, 215, 0, 0.5);
+            margin-bottom: 30px;
+        }
+        .question {
+            margin: 15px 0;
+            padding: 10px;
+            border: 1px solid #FFD700;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.2);
+        }
+        button {
+            padding: 10px 15px;
+            border-radius: 5px;
+            border: none;
+            background-color: #FFD700;
+            color: #000;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            margin: 5px;
+            font-size: 1em;
+        }
+        button:hover {
+            background-color: #FFC107;
+            transform: scale(1.05);
+        }
+        .result {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        #score {
+            font-size: 1.5em;
+            text-align: center;
+            color: #FFD700;
+            margin-top: 20px;
+        }
+        .animation {
+            animation: bounce 1s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        #leaderboard {
+            margin-top: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 10px;
+        }
+        .leaderboard-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        .leaderboard-table th, .leaderboard-table td {
+            border: 1px solid #FFD700;
+            padding: 10px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.2);
+        }
+        .leaderboard-table th {
+            background: rgba(255, 215, 0, 0.3);
+        }
+        input[type="text"] {
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #FFD700;
+            margin-top: 10px;
+            width: calc(100% - 20px);
+        }
+
+        nav a {
+            color: #FFD700; /* Golden color for links */
+            text-decoration: none; /* No underline */
+            margin: 0 15px; /* Spacing between links */
+            font-size: 18px; /* Font size for links */
+        }
+        
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+    </nav>
+    <h2>Alien Trivia</h2>
+    <div class="section" id="trivia-section">
+        <div id="questions-container">
+            <!-- Trivia Questions -->
+            <div class="question">
+                <p>1. What is the name of the character played by Sigourney Weaver?</p>
+                <div>
+                    <button onclick="checkAnswer(1, 'Ripley')">Ripley</button>
+                    <button onclick="checkAnswer(1, 'Dallas')">Dallas</button>
+                    <button onclick="checkAnswer(1, 'Bishop')">Bishop</button>
+                    <button onclick="checkAnswer(1, 'Ash')">Ash</button>
+                </div>
+                <div class="result" id="result1"></div>
+            </div>
+            <div class="question">
+                <p>2. On which planet does the first Alien movie take place?</p>
+                <div>
+                    <button onclick="checkAnswer(2, 'Tatooine')">Tatooine</button>
+                    <button onclick="checkAnswer(2, 'LV-426')">LV-426</button>
+                    <button onclick="checkAnswer(2, 'Earth')">Earth</button>
+                    <button onclick="checkAnswer(2, 'Krypton')">Krypton</button>
+                </div>
+                <div class="result" id="result2"></div>
+            </div>
+            <div class="question">
+                <p>3. What type of creature is the Xenomorph?</p>
+                <div>
+                    <button onclick="checkAnswer(3, 'Mutant')">Mutant</button>
+                    <button onclick="checkAnswer(3, 'Robot')">Robot</button>
+                    <button onclick="checkAnswer(3, 'Alien')">Alien</button>
+                    <button onclick="checkAnswer(3, 'Human')">Human</button>
+                </div>
+                <div class="result" id="result3"></div>
+            </div>
+            <div class="question">
+                <p>4. What is the name of the ship the characters travel on?</p>
+                <div>
+                    <button onclick="checkAnswer(4, 'Nostromo')">Nostromo</button>
+                    <button onclick="checkAnswer(4, 'Enterprise')">Enterprise</button>
+                    <button onclick="checkAnswer(4, 'Millennium Falcon')">Millennium Falcon</button>
+                    <button onclick="checkAnswer(4, 'Serenity')">Serenity</button>
+                </div>
+                <div class="result" id="result4"></div>
+            </div>
+            <div class="question">
+                <p>5. What is used to combat the Xenomorph?</p>
+                <div>
+                    <button onclick="checkAnswer(5, 'Water')">Water</button>
+                    <button onclick="checkAnswer(5, 'Fire')">Fire</button>
+                    <button onclick="checkAnswer(5, 'Plasma Cannon')">Plasma Cannon</button>
+                    <button onclick="checkAnswer(5, 'None')">None</button>
+                </div>
+                <div class="result" id="result5"></div>
+            </div>
+            <div class="question">
+                <p>6. Who is the director of the first Alien movie?</p>
+                <div>
+                    <button onclick="checkAnswer(6, 'David Fincher')">David Fincher</button>
+                    <button onclick="checkAnswer(6, 'Ridley Scott')">Ridley Scott</button>
+                    <button onclick="checkAnswer(6, 'James Cameron')">James Cameron</button>
+                    <button onclick="checkAnswer(6, 'Jean-Pierre Jeunet')">Jean-Pierre Jeunet</button>
+                </div>
+                <div class="result" id="result6"></div>
+            </div>
+            <div class="question">
+                <p>7. Which company creates the Xenomorph?</p>
+                <div>
+                    <button onclick="checkAnswer(7, 'Cyberdyne')">Cyberdyne</button>
+                    <button onclick="checkAnswer(7, 'Umbrella Corporation')">Umbrella Corporation</button>
+                    <button onclick="checkAnswer(7, 'Weyland-Yutani')">Weyland-Yutani</button>
+                    <button onclick="checkAnswer(7, 'Tyrell Corporation')">Tyrell Corporation</button>
+                </div>
+                <div class="result" id="result7"></div>
+            </div>
+            <div class="question">
+                <p>8. What type of creature is the "Facehugger"?</p>
+                <div>
+                    <button onclick="checkAnswer(8, 'Predator')">Predator</button>
+                    <button onclick="checkAnswer(8, 'Parasite')">Parasite</button>
+                    <button onclick="checkAnswer(8, 'Mutant')">Mutant</button>
+                    <button onclick="checkAnswer(8, 'Robots')">Robots</button>
+                </div>
+                <div class="result" id="result8"></div>
+            </div>
+            <div class="question">
+                <p>9. What is found inside Xenomorph eggs?</p>
+                <div>
+                    <button onclick="checkAnswer(9, 'Ovum')">Ovum</button>
+                    <button onclick="checkAnswer(9, 'Toxic Substance')">Toxic Substance</button>
+                    <button onclick="checkAnswer(9, 'Facehugger')">Facehugger</button>
+                    <button onclick="checkAnswer(9, 'Embryo')">Embryo</button>
+                </div>
+                <div class="result" id="result9"></div>
+            </div>
+            <div class="question">
+                <p>10. Who is Ian Holm's character in Alien?</p>
+                <div>
+                    <button onclick="checkAnswer(10, 'Kane')">Kane</button>
+                    <button onclick="checkAnswer(10, 'Dallas')">Dallas</button>
+                    <button onclick="checkAnswer(10, 'Ash')">Ash</button>
+                    <button onclick="checkAnswer(10, 'Bishop')">Bishop</button>
+                </div>
+                <div class="result" id="result10"></div>
+            </div>
+            <div class="question">
+                <p>11. What is the name of the android in "Aliens"?</p>
+                <div>
+                    <button onclick="checkAnswer(11, 'Call')">Call</button>
+                    <button onclick="checkAnswer(11, 'Bishop')">Bishop</button>
+                    <button onclick="checkAnswer(11, 'David')">David</button>
+                    <button onclick="checkAnswer(11, 'Ash')">Ash</button>
+                </div>
+                <div class="result" id="result11"></div>
+            </div>
+            <div class="question">
+                <p>12. What does Ripley do to destroy the ship in "Alien 3"?</p>
+                <div>
+                    <button onclick="checkAnswer(12, 'Disintegration')">Disintegration</button>
+                    <button onclick="checkAnswer(12, 'Fire')">Fire</button>
+                    <button onclick="checkAnswer(12, 'Self-Destruction')">Self-Destruction</button>
+                    <button onclick="checkAnswer(12, 'Controlled Explosion')">Controlled Explosion</button>
+                </div>
+                <div class="result" id="result12"></div>
+            </div>
+            <div class="question">
+                <p>13. What type of creature is the "Queen" in the saga?</p>
+                <div>
+                    <button onclick="checkAnswer(13, 'Humanoid Queen')">Humanoid Queen</button>
+                    <button onclick="checkAnswer(13, 'Alien Queen')">Alien Queen</button>
+                    <button onclick="checkAnswer(13, 'Predator Queen')">Predator Queen</button>
+                    <button onclick="checkAnswer(13, 'Xenomorph Queen')">Xenomorph Queen</button>
+                </div>
+                <div class="result" id="result13"></div>
+            </div>
+            <div class="question">
+                <p>14. Which company tries to capture Ripley in "Alien: Resurrection"?</p>
+                <div>
+                    <button onclick="checkAnswer(14, 'Weyland-Yutani')">Weyland-Yutani</button>
+                    <button onclick="checkAnswer(14, 'Umbrella Corporation')">Umbrella Corporation</button>
+                    <button onclick="checkAnswer(14, 'Tyrell Corporation')">Tyrell Corporation</button>
+                    <button onclick="checkAnswer(14, 'Cyberdyne')">Cyberdyne</button>
+                </div>
+                <div class="result" id="result14"></div>
+            </div>
+            <div class="question">
+                <p>15. In what year was the first Alien movie released?</p>
+                <div>
+                    <button onclick="checkAnswer(15, '1982')">1982</button>
+                    <button onclick="checkAnswer(15, '1979')">1979</button>
+                    <button onclick="checkAnswer(15, '1986')">1986</button>
+                    <button onclick="checkAnswer(15, '1990')">1990</button>
+                </div>
+                <div class="result" id="result15"></div>
+            </div>
+            <div class="question">
+                <p>What substance is used for space travel in the saga?</p>
+                <div>
+                    <button onclick="checkAnswer(16, 'Hyperdrive')">Hyperdrive</button>
+                    <button onclick="checkAnswer(16, 'Cryo-sleep')">Cryo-sleep</button>
+                    <button onclick="checkAnswer(16, 'Conventional Propulsion')">Conventional Propulsion</button>
+                    <button onclick="checkAnswer(16, 'Warp Drive')">Warp Drive</button>
+                </div>
+                <div class="result" id="result16"></div>
+            </div>
+            <div class="question">
+                <p>17. What is found inside Xenomorph eggs?</p>
+                <div>
+                    <button onclick="checkAnswer(17, 'Facehugger')">Facehugger</button>
+                    <button onclick="checkAnswer(17, 'Embryo')">Embryo</button>
+                    <button onclick="checkAnswer(17, 'Toxic Substance')">Toxic Substance</button>
+                    <button onclick="checkAnswer(17, 'Ovum')">Ovum</button>
+                </div>
+                <div class="result" id="result17"></div>
+            </div>
+            <div class="question">
+                <p>18. Who is the author of the original Alien script?</p>
+                <div>
+                    <button onclick="checkAnswer(18, 'Dan O\'Bannon')">Dan O'Bannon</button>
+                    <button onclick="checkAnswer(18, 'Ridley Scott')">Ridley Scott</button>
+                    <button onclick="checkAnswer(18, 'James Cameron')">James Cameron</button>
+                    <button onclick="checkAnswer(18, 'David Giler')">David Giler</button>
+                </div>
+                <div class="result" id="result18"></div>
+            </div>
+            <div class="question">
+                <p>19. What does Ripley do to destroy the ship in "Alien 3"?</p>
+                <div>
+                    <button onclick="checkAnswer(19, 'Self-Destruction')">Self-Destruction</button>
+                    <button onclick="checkAnswer(19, 'Fire')">Fire</button>
+                    <button onclick="checkAnswer(19, 'Disintegration')">Disintegration</button>
+                    <button onclick="checkAnswer(19, 'Controlled Explosion')">Controlled Explosion</button>
+                </div>
+                <div class="result" id="result19"></div>
+            </div>
+            <div class="question">
+                <p>20. What type of creature is the "Queen" in the saga?</p>
+                <div>
+                    <button onclick="checkAnswer(20, 'Xenomorph Queen')">Xenomorph Queen</button>
+                    <button onclick="checkAnswer(20, 'Alien Queen')">Alien Queen</button>
+                    <button onclick="checkAnswer(20, 'Humanoid Queen')">Humanoid Queen</button>
+                    <button onclick="checkAnswer(20, 'Predator Queen')">Predator Queen</button>
+                </div>
+                <div class="result" id="result20"></div>
+            </div>
+        </div>
+        <button onclick="showScore('trivia')">Show Score</button>
+        <div id="score"></div>
+    </div>
+
+    <h2>Riddle Game</h2>
+    <div class="section" id="riddle-game-section">
+        <p>What creature is known for emerging from eggs and attacking its victims?</p>
+        <input type="text" id="riddle-answer" placeholder="Type your answer here">
+        <button onclick="checkRiddle()">Guess</button>
+        <div id="riddle-result" class="result"></div>
+    </div>
+
+    <h2>Crossword Game</h2>
+    <div class="section" id="crossword-game-section">
+        <p>Complete the words related to Alien:</p>
+        <div>
+            <span>1. The ship of the characters: </span>
+            <input type="text" id="crossword1" maxlength="8" placeholder="Nostromo">
+        </div>
+        <div>
+            <span>2. Responsible company: </span>
+            <input type="text" id="crossword2" maxlength="14" placeholder="Weyland-Yutani">
+        </div>
+        <div>
+            <span>4. The director of the first movie: </span>
+            <input type="text" id="crossword4" maxlength="12" placeholder="Ridley Scott">
+        </div>
+        <div>
+            <span>5. The android in "Aliens": </span>
+            <input type="text" id="crossword5" maxlength="6" placeholder="Bishop">
+        </div>
+        <div>
+            <span>6. Type of space travel in the saga: </span>
+            <input type="text" id="crossword6" maxlength="10" placeholder="Hyperdrive">
+        </div>
+        <div>
+            <span>7. Name of the ship in "Prometheus": </span>
+            <input type="text" id="crossword7" maxlength="10" placeholder="Covenant">
+        </div>
+        <div>
+            <span>8. Creature known for its strength: </span>
+            <input type="text" id="crossword8" maxlength="9" placeholder="Xenomorph">
+        </div>
+        <div>
+            <span>9. What type of creature is the "Queen"?: </span>
+            <input type="text" id="crossword9" maxlength="12" placeholder="Xenomorph Queen">
+        </div>
+        <div>
+            <span>10. What is used to combat Xenomorphs?: </span>
+            <input type="text" id="crossword10" maxlength="10" placeholder="Fire">
+        </div>
+        <button onclick="checkCrossword()">Check Answers</button>
+        <div id="crossword-result" class="result"></div>
+        <button onclick="showScore('crosswords')">Show Score</button>
+    </div>
+
+    <div id="leaderboard">
+        <h2>Leaderboards</h2>
+        <h3>Trivia</h3>
+        <table class="leaderboard-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody id="trivia-leaderboard-body">
+                <!-- Scores will be added here -->
+            </tbody>
+        </table>
+        
+        <h3>Riddles</h3>
+        <table class="leaderboard-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody id="riddle-leaderboard-body">
+                <!-- Scores will be added here -->
+            </tbody>
+        </table>
+        
+        <h3>Crosswords</h3>
+        <table class="leaderboard-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody id="crossword-leaderboard-body">
+                <!-- Scores will be added here -->
+            </tbody>
+        </table>
+        
+        <h3>Overall Table</h3>
+        <table class="leaderboard-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody id="general-leaderboard-body">
+                <!-- Scores will be added here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        let triviaScore = 0;
+        let riddleScore = 0;
+        let crosswordScore = 0;
+        let leaderboard = JSON.parse(localStorage.getItem('leaderboard')) || [];
+
+        function checkAnswer(questionNumber, answer) {
+            const correctAnswers = {
+                1: 'Ripley',
+                2: 'LV-426',
+                3: 'Alien',
+                4: 'Nostromo',
+                5: 'Fire',
+                6: 'Ridley Scott',
+                7: 'Weyland-Yutani',
+                8: 'Parasite',
+                9: 'Facehugger',
+                10: 'Ash',
+                11: 'Bishop',
+                12: 'Self-Destruction',
+                13: 'Xenomorph Queen',
+                14: 'Weyland-Yutani',
+                15: '1979',
+                16: 'Hyperdrive',
+                17: 'Facehugger',
+                18: "Dan O'Bannon",
+                19: 'Self-Destruction',
+                20: 'Xenomorph Queen'
+            };
+
+            const resultDiv = document.getElementById(`result${questionNumber}`);
+            
+            if (!resultDiv.innerText) { // Allow answering only once
+                if (answer === correctAnswers[questionNumber]) {
+                    resultDiv.innerText = "Correct!";
+                    resultDiv.style.color = "green";
+                    triviaScore++;
+                } else {
+                    resultDiv.innerText = "Incorrect. The correct answer is: " + correctAnswers[questionNumber];
+                    resultDiv.style.color = "red";
+                }
+            }
+        }
+
+        function showScore(game) {
+            let score = 0;
+            if (game === 'trivia') {
+                score = triviaScore;
+            } else if (game === 'riddles') {
+                score = riddleScore; // Implement logic for riddles
+            } else if (game === 'crosswords') {
+                score = crosswordScore; // Implement logic for crosswords
+            }
+
+            const totalQuestions = game === 'trivia' ? 20 : 10; // Change according to the game
+            document.getElementById("score").innerText = `Your score is: ${score} out of ${totalQuestions}`;
+            
+            const name = prompt("Enter your name for the leaderboard:");
+            if (name) {
+                const existingEntry = leaderboard.find(entry => entry.name === name);
+                if (existingEntry) {
+                    existingEntry.score += score; // Add score if already exists
+                } else {
+                    leaderboard.push({ name, score });
+                }
+                localStorage.setItem('leaderboard', JSON.stringify(leaderboard));
+                updateLeaderboards();
+            }
+        }
+
+        function updateLeaderboards() {
+            const triviaBody = document.getElementById('trivia-leaderboard-body');
+            const riddleBody = document.getElementById('riddle-leaderboard-body');
+            const crosswordBody = document.getElementById('crossword-leaderboard-body');
+            const generalBody = document.getElementById('general-leaderboard-body');
+
+            triviaBody.innerHTML = '';
+            riddleBody.innerHTML = '';
+            crosswordBody.innerHTML = '';
+            generalBody.innerHTML = '';
+
+            leaderboard.sort((a, b) => b.score - a.score).forEach(entry => {
+                triviaBody.innerHTML += `<tr><td>${entry.name}</td><td>${entry.score}</td></tr>`;
+                generalBody.innerHTML += `<tr><td>${entry.name}</td><td>${entry.score}</td></tr>`;
+            });
+        }
+
+        // Riddle Game
+        function checkRiddle() {
+            const answer = document.getElementById("riddle-answer").value.toLowerCase();
+            const riddleResult = document.getElementById("riddle-result");
+
+            if (answer === "facehugger") {
+                riddleResult.innerText = "Correct! It's a Facehugger.";
+                riddleResult.style.color = "green";
+                riddleScore++;
+            } else {
+                riddleResult.innerText = "Incorrect. Try again.";
+                riddleResult.style.color = "red";
+            }
+        }
+
+        // Crossword Game
+        function checkCrossword() {
+            const answers = [
+                { id: "crossword1", correct: "nostromo" },
+                { id: "crossword2", correct: "weyland-yutani" },
+                { id: "crossword4", correct: "ridley scott" },
+                { id: "crossword5", correct: "bishop" },
+                { id: "crossword6", correct: "hyperdrive" },
+                { id: "crossword7", correct: "covenant" },
+                { id: "crossword8", correct: "xenomorph" },
+                { id: "crossword9", correct: "xenomorph queen" },
+                { id: "crossword10", correct: "fire" }
+            ];
+
+            let correctAnswers = 0;
+            const crosswordResult = document.getElementById("crossword-result");
+            crosswordResult.innerText = '';
+
+            answers.forEach(answer => {
+                const userAnswer = document.getElementById(answer.id).value.toLowerCase();
+                if (userAnswer === answer.correct) {
+                    correctAnswers++;
+                } else {
+                    crosswordResult.innerText += `${answer.id.replace('crossword', '')}. Incorrect. The correct answer is: ${answer.correct}. `;
+                }
+            });
+
+            crosswordResult.innerText += `You got ${correctAnswers} out of ${answers.length} answers correct.`;
+            crosswordResult.style.color = correctAnswers === answers.length ? "green" : "red";
+
+            // Update score
+            crosswordScore += correctAnswers;
+        }
+
+        updateLeaderboards(); // Load leaderboards on startup
+    </script>
+
+</body>
+</html>
+

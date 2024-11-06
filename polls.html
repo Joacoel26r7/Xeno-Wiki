@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en" style="background: linear-gradient(to right, #2c3e50, #4ca1af);">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Polls</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #000000, #691010); /* Background gradient */
+            color: #FFFFFF; /* White text */
+            margin: 0;
+            padding: 20px;
+            animation: fadeIn 1s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        h2 {
+            color: #FFD700; /* Golden color */
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+        article {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid #FFD700; /* Golden border */
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 20px rgba(255, 215, 0, 0.5); /* Golden shadow */
+            backdrop-filter: blur(10px); /* Blur effect */
+            transition: transform 0.3s;
+        }
+        article:hover {
+            transform: scale(1.02); /* Zoom effect on hover */
+        }
+        section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.15); /* Semi-transparent background */
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s;
+        }
+        section:hover {
+            transform: scale(1.02); /* Zoom effect on hover */
+        }
+        h3 {
+            color: #FFD700; /* Golden color */
+            margin: 10px 0;
+        }
+        select, button {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #FFD700;
+            background: rgba(255, 255, 255, 0.2);
+            color: #000000; /* Black text in select and button */
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        button {
+            background-color: #FFD700;
+            color: #000; /* Black text on button */
+        }
+        button:hover {
+            background-color: #FFC107;
+            transform: scale(1.05); /* Zoom effect on button */
+        }
+        .results {
+            margin-top: 15px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            color: #ffffff; /* White text in results */
+            font-weight: bold;
+            transition: opacity 0.3s;
+        }
+        .fun-facts {
+            margin-top: 20px;
+            font-style: italic;
+            color: #FFD700; /* Golden color for fun facts */
+        }
+        .animated {
+            animation: bounce 1s infinite;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+    </style>
+</head>
+<body>
+
+<article id="polls">
+    <h2>Alien Polls!</h2>
+    
+    <section>
+        <h3>What is your favorite Alien movie?</h3>
+        <form id="pollForm1">
+            <select id="movieSelect">
+                <option value="Alien (1979)">Alien (1979)</option>
+                <option value="Aliens (1986)">Aliens (1986)</option>
+                <option value="Alien 3 (1992)">Alien 3 (1992)</option>
+                <option value="Alien: Resurrection (1997)">Alien: Resurrection (1997)</option>
+                <option value="Alien: Romulus (2024)">Alien: Romulus (2024)</option>
+                <option value="Alien: Covenant (2017)">Alien: Covenant (2017)</option>
+            </select>
+            <button type="submit" class="animated">Vote!</button>
+        </form>
+        <div class="results" id="resultsContainer1"></div>
+    </section>
+
+    <section>
+        <h3>Who is your favorite Alien character?</h3>
+        <form id="pollForm2">
+            <select id="characterSelect">
+                <option value="Ellen Ripley">Ellen Ripley</option>
+                <option value="Xenomorph">Xenomorph</option>
+                <option value="Dallas">Dallas</option>
+                <option value="Bishop">Bishop</option>
+                <option value="Amanda Ripley">Amanda Ripley</option>
+                <option value="Lambert">Lambert</option>
+                <option value="Ash">Ash</option>
+            </select>
+            <button type="submit" class="animated">Vote!</button>
+        </form>
+        <div class="results" id="resultsContainer2"></div>
+    </section>
+
+    <section>
+        <h3>What aspect of the Alien movies do you like the most?</h3>
+        <form id="pollForm3">
+            <select id="aspectSelect">
+                <option value="Tension">Tension</option>
+                <option value="Special Effects">Special Effects</option>
+                <option value="Story">Story</option>
+                <option value="Characters">Characters</option>
+            </select>
+            <button type="submit" class="animated">Vote!</button>
+        </form>
+        <div class="results" id="resultsContainer3"></div>
+    </section>
+
+    <section>
+        <h3>Which alien would you like to have as a pet?</h3>
+        <form id="pollForm4">
+            <select id="petSelect">
+                <option value="Xenomorph">Xenomorph</option>
+                <option value="Predator">Predator</option>
+                <option value="E.T.">E.T.</option>
+                <option value="Yoda">Yoda</option>
+            </select>
+            <button type="submit" class="animated">Vote!</button>
+        </form>
+        <div class="results" id="resultsContainer4"></div>
+    </section>
+
+    <section>
+        <h3>What would be your favorite weapon in an Alien movie?</h3>
+        <form id="pollForm5">
+            <select id="weaponSelect">
+                <option value="Plasma Cannon">Plasma Cannon</option>
+                <option value="Chainsaw">Chainsaw</option>
+                <option value="Flamethrower">Flamethrower</option>
+                <option value="Combat Knife">Combat Knife</option>
+            </select>
+            <button type="submit" class="animated">Vote!</button>
+        </form>
+        <div class="results" id="resultsContainer5"></div>
+    </section>
+
+    <div class="fun-facts">
+        <h3>Fun Facts:</h3>
+        <p>Did you know that the first Alien movie premiered in 1979 and was a huge box office success?</p>
+        <p>The character Ripley, played by Sigourney Weaver, is considered one of the best female characters in film history.</p>
+        <p>Did you know that "Alien" has a message about capitalism and what companies would do for monetary gain?</p>
+        <p>This shows how far Weyland-Yutani would go to keep the specimen.</p>
+    </div>
+</article>
+
+<script>
+    const votes = {
+        movie: JSON.parse(localStorage.getItem('pollVotesMovie')) || {
+            "Alien (1979)": 0,
+            "Aliens (1986)": 0,
+            "Alien 3 (1992)": 0,
+            "Alien: Resurrection (1997)": 0,
+            "Alien: Romulus (2024)": 0,
+            "Alien: Covenant (2017)": 0
+        },
+        character: JSON.parse(localStorage.getItem('pollVotesCharacter')) || {
+            "Ellen Ripley": 0,
+            "Xenomorph": 0,
+            "Dallas": 0,
+            "Bishop": 0,
+            "Amanda Ripley": 0,
+            "Lambert": 0,
+            "Ash": 0
+        },
+        aspect: JSON.parse(localStorage.getItem('pollVotesAspect')) || {
+            "Tension": 0,
+            "Special Effects": 0,
+            "Story": 0,
+            "Characters": 0
+        },
+        pet: JSON.parse(localStorage.getItem('pollVotesPet')) || {
+            "Xenomorph": 0,
+            "Predator": 0,
+            "E.T.": 0,
+            "Yoda": 0
+        },
+        weapon: JSON.parse(localStorage.getItem('pollVotesWeapon')) || {
+            "Plasma Cannon": 0,
+            "Chainsaw": 0,
+            "Flamethrower": 0,
+            "Combat Knife": 0
+        }
+    };
+
+    function updateResults(pollType) {
+        const totalVotes = Object.values(votes[pollType]).reduce((a, b) => a + b, 0);
+        const resultsContainer = document.getElementById(`resultsContainer${pollType === 'movie' ? '1' : pollType === 'character' ? '2' : pollType === 'aspect' ? '3' : pollType === 'pet' ? '4' : '5'}`);
+        resultsContainer.innerHTML = '';
+
+        for (const option in votes[pollType]) {
+            const count = votes[pollType][option];
+            const percentage = totalVotes > 0 ? ((count / totalVotes) * 100).toFixed(2) : 0;
+            resultsContainer.innerHTML += `<p>${option}: ${count} vote(s) (${percentage}%)</p>`;
+        }
+        resultsContainer.style.opacity = 1; // Ensure results are visible
+    }
+
+    document.getElementById('pollForm1').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const selectedMovie = document.getElementById('movieSelect').value;
+        votes.movie[selectedMovie]++;
+        localStorage.setItem('pollVotesMovie', JSON.stringify(votes.movie));
+        updateResults('movie');
+    });
+
+    document.getElementById('pollForm2').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const selectedCharacter = document.getElementById('characterSelect').value;
+        votes.character[selectedCharacter]++;
+        localStorage.setItem('pollVotesCharacter', JSON.stringify(votes.character));
+        updateResults('character');
+    });
+
+    document.getElementById('pollForm3').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const selectedAspect = document.getElementById('aspectSelect').value;
+        votes.aspect[selectedAspect]++;
+        localStorage.setItem('pollVotesAspect', JSON.stringify(votes.aspect));
+        updateResults('aspect');
+    });
+
+    document.getElementById('pollForm4').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const selectedPet = document.getElementById('petSelect').value;
+        votes.pet[selectedPet]++;
+        localStorage.setItem('pollVotesPet', JSON.stringify(votes.pet));
+        updateResults('pet');
+    });
+
+    document.getElementById('pollForm5').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const selectedWeapon = document.getElementById('weaponSelect').value;
+        votes.weapon[selectedWeapon]++;
+        localStorage.setItem('pollVotesWeapon', JSON.stringify(votes.weapon));
+        updateResults('weapon');
+    });
+
+    // Load results on page load
+    window.onload = function() {
+        updateResults('movie');
+        updateResults('character');
+        updateResults('aspect');
+        updateResults('pet');
+        updateResults('weapon');
+    };
+</script>
+
+</body>
+</html>

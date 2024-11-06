@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Xenomorph Wiki</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        /* Original CSS here... */
+        body {
+            background-color: #0d0d0d;
+            color: #e0e0e0;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            overflow-x: hidden;
+        }
+        header {
+            background: url('media/header-background.jpg') no-repeat center center/cover;
+            padding: 20px;
+            color: #fff;
+            position: relative;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+        .banner {
+            background: url('media/banner-background.jpg') no-repeat center center/cover;
+            color: #fff;
+            padding: 50px 20px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+        .main-content {
+            padding: 20px;
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        h1, h2 {
+            color: #ffcc00;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+            margin-bottom: 10px;
+        }
+        article {
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: #2a2a2a;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s;
+        }
+        article:hover {
+            transform: scale(1.02);
+        }
+        .image-placeholder {
+            width: 80%;
+            margin: 20px auto;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        .image-placeholder img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+        }
+        footer {
+            background-color: #111;
+            color: #e0e0e0;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+        }
+        p {
+            color: #d0d0d0;
+            line-height: 1.6;
+            margin: 10px 0;
+            padding: 10px;
+            border-left: 4px solid #ff0000; /* Changed to red */
+            background-color: rgba(255, 0, 0, 0.1); /* Soft red background */
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        p:hover {
+            background-color: rgba(255, 0, 0, 0.2);
+        }
+        nav a {
+            color: #ffcc00;
+            text-decoration: none;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #ff9900;
+        }
+        .container-navbar {
+            background-color: #333;
+            padding: 10px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+        .menu {
+            list-style: none;
+            padding: 0;
+            display: flex; /* Aligns horizontally */
+            justify-content: center; /* Centers the menu */
+        }
+        .menu li {
+            display: inline;
+        }
+        .title-footer {
+            font-weight: bold;
+            color: #ffcc00;
+        }
+        #welcome {
+            font: 60px bolder red sans-serif;
+        }
+        .mini-navbar {
+            margin: 20px 0;
+            padding: 10px;
+            background-color: #444;
+            border-radius: 8px;
+        }
+        .mini-navbar a {
+            color: #ffcc00;
+            margin: 0 10px;
+        }
+        .mini-navbar a:hover {
+            color: #ff9900;
+        }
+        .highlight {
+            background-color: yellow; /* Highlighted text background color */
+            font-weight: bold; /* Bold for highlighted text */
+        }
+        .reset-button {
+            margin-left: 10px; /* Spacing between input and button */
+            padding: 10px 20px;
+            background-color: #ff9900;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: none; /* Hidden by default */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container-hero">
+            <div class="container hero">
+                <div class="customer-support">
+                    <i class="fa-solid fa-headset"></i>
+                    <div class="content-customer-support">
+                        <p>Made for: Frederick Joaquin Riedel Padilla</p>
+                    </div>
+                </div>
+
+                <div class="container-logo">
+                    <img src="media/alien-movie-aliens-xenomorph-alien-3-wallpaper-preview.jpg" alt="Logo" style="width: 50px; height: auto;" />
+                    <h1 class="logo"><a href="#">The Xenomorph Wiki</a></h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-navbar">
+            <nav class="navbar container">
+                <i class="fa-solid fa-bars"></i>
+                <ul class="menu">
+                    <li><a href="#lifecycle">Xenomorph Lifecycle</a></li>
+                    <li><a href="#species">Species Overview</a></li>
+                    <li><a href="#technology">Xenomorph Technology</a></li>
+                    <li><a href="#films">Alien Films</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="polls.html">Polls</a></li>
+                    <li><a href="games.html">Games</a></li>
+                </ul>
+        
+                <form class="search-form" id="search-form">
+                    <input type="search" id="search-input" placeholder="Search..." />
+                    <button type="submit" class="btn-search">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                    <button type="button" class="reset-button" id="reset-button">Reset Search</button>
+                </form>
+            </nav>
+        </div>
+    </header>
+
+    <section class="banner">
+        <div class="content-banner">
+            <p id="welcome">Welcome to the Xenomorph Wiki</p>
+            <h2>Your Source for Alien Knowledge</h2>
+        </div>
+    </section>
+
+    <main class="main-content">
+        <section class="container wiki-content" id="wiki-content">
+            <h1 class="heading-1">Xenomorph Wiki</h1>
+            <p>Content about Xenomorphs...</p>
+            <article id="species">
+                <h2>Species Overview</h2>
+                <div class="image-placeholder">
+                    <img src="https://i0.wp.com/ellaberintodelminotauro.com.co/wp-content/uploads/2024/09/ALIEN-ROMULUS.png?fit=1200%2C675&ssl=1" alt="Species Overview" />
+                </div>
+                
+                <nav class="mini-navbar">
+                    <a href="#queen">Queen</a>
+                    <a href="#egg">Egg</a>
+                    <a href="#facehugger">Facehugger</a>
+                    <a href="#chestburster">Chestburster</a>
+                    <a href="#young-xenomorph">Young Xenomorph</a>
+                    <a href="#drone">Drone and Warrior</a>
+                    <a href="#praetorian">Praetorian</a>
+                </nav>
+
+                <h3 id="queen">Queen</h3>
+                <p>All Xenomorphs are asexual except for the queen. The life of this and these is similar to that of ants or bees. She is the leader, with a size ten times larger than normal Xenomorphs. She can control over half a million Xenomorph soldiers through pheromone control.</p>
+                <p>The queen's shape is similar to that of drones, but she has a larger and thicker exoskeleton, with ridges on the back of her head that give her the appearance of a crown; her limbs are longer and thinner, with an additional pair of smaller arms on her thorax, below her main arms. Her strength is greater than any member of her species, and she possesses superior intelligence that allows her to telepathically control each member of her colony.</p>
+                <p>She is responsible for laying the eggs, the means by which this species reproduces: from these, the immature form will be born that infects the host to fulfill the second phase of its life as parasites.</p>
+                <p>Queens can appear in different ways. One, the most common, is through the facehugger like normal Xenomorphs, with the difference that the embryo takes longer than normal to emerge from the host; queens born from facehuggers, while the most common form of reproduction, are not produced in large numbers to maintain the hierarchy stable.</p>
+                <p>It has been said that occasionally the offspring of a queen, unlike the rest of the species, does not use a host to gestate, as even being born directly from the egg is strong enough to survive in the environment.</p>
+                <p>When the queen's offspring grows, it goes through the praetorian stage, looking similar to a Queen but without the reproductive organ and without her 2 additional arms as well as a smaller size. In the absence of an adult queen, the praetorian wraps itself in a cocoon to become the new queen.</p>
+                <p>Another way they are created is through the Xenomorph drones, which if they have exceeded a century of age or have fulfilled their queen, are rewarded with a jelly that the queen can create, with which they transform into Praetorians with their alternative metamorphosis that activates in the absence of a queen; this allows them to develop a reproductive system with which to lay eggs, as well as their crown, intelligence, size, and strength.</p>
+                <p>In some comics and video games, not only do common Xenomorphs change shape over time, but the queen also evolves, becoming an "Empress," larger, stronger, with a more elaborate crown and another pair of arms.</p>
+                <p>The queen's height ranges from five to seven meters in length, including the tail, with a weight of around six tons. Despite being constantly surrounded by the rest of the hive, who are willing to kill or sacrifice themselves before letting any danger approach her, she is truly the strongest creature in her society. If any danger surpasses the defenses or power of the hive, the queen may tear off her reproductive system, which is located under her legs in the form of a gigantic pod or caterpillar from which the eggs emerge. Once free of this part of her body, her maximum speed easily exceeds 60 km/h and she has the freedom of movement necessary to face threats directly to her colony; however, if there is no successor, the colony is destined for extinction, as the queen will never be able to give birth again.</p>
+                
+                <h3 id="egg">Egg</h3>
+                <p>This is the first life cycle of the Xenomorph. It has a shape similar to that of a bird, but that is where the similarity ends. It does not break as it is made of organic tissue; instead, it has two pairs of lips through which it expels the facehugger upon detecting a suitable life source. They are ochre in color, and when freshly laid, they have a sticky texture, although over time they dry without altering the facehugger. It is more similar to a carnivorous plant.</p>
+            
+                <h3 id="facehugger">Facehugger</h3>
+                <p>Resembling an orange hand (or a spider) with eight long legs with multiple joints and a tail, which it uses as a gripping appendage. It emerges from the eggs laid by the queen upon detecting a significant source of living organisms, jumping and clinging to the victim's head, wrapping the neck with its tail, trapping the face with its phalanges and inducing a coma that lasts until just before birth. Attempting to remove it would mean the host's death, as it takes over the functions of the respiratory and circulatory systems during the infection.</p>
+            
+                <p>This creature places its larva in the stomach or thorax and after doing so, releases the prey and apparently dies, but it has actually entered the host's body in a new body. Its blood is a yellow-green organic acid that is highly corrosive. In this state, its mind is extremely rudimentary, to the point of not discriminating against the host even though its influence on gestation poses a danger to the colony, as in the case of the Yautja or the Space Jockey.</p>
+            
+                <h3 id="chestburster">Chestburster</h3>
+                <p>Its appearance is that of an adult, but its exoskeleton has not matured, so it has a whitish color; having not developed and with its limbs still small, it gives the impression of looking like a snake with sharp teeth. After a period of incubation inside the host, it bursts out of the chest and kills it; when this occurs in a place other than its own nest, it flees to a safe place to grow, as during this stage it does not yet have the shell and strength of adults. During this phase, it feeds on its victims or life forms hunted near the den. As it grows, it sheds its skin, leaving it where it has been. When incubation occurs in the den, adults trap hosts in the walls made of resin (solidified saliva), where they are infected and after dying will be the food for the offspring.</p>
+            
+                <p>Its development within the host varies between a few minutes and several hours; it is believed that the time changes depending on where the host was inoculated, as if the facehugger clings to its victim in the den, or another space controlled by the Xenomorphs, it can develop quietly and slowly, making the incubation time longer, but in a foreign environment, its development tends to be faster.</p>
+            
+                <p>It is believed that the Chestburster has a connection with its host that allows it to perceive their reactions. In other cases, the host has enough willpower to delay the emergence of the Chestburster.</p>
+            
+                <h3 id="young-xenomorph">Young Xenomorph</h3>
+                <p>The Young Xenomorph is a stage that has only been seen in the film Alien: Covenant. This young xenomorph suffers from accelerated growth, reaching this stage just seconds after bursting from the chest.</p>
+            
+                <h3 id="drone">Drone and Warrior (Adult)</h3>
+                <p>The most common life form, representing 80% of its species. Generally defined as a living weapon, with a black elongated head. It has a dolichocephalic skull and two pairs of jaws. They are extremely agile, capable of moving at great speeds even on ceilings or underwater. Their blood is a mixture of potassium chloride and highly corrosive sulfuric acid.</p>
+            
+                <p>They generally hunt at night or in low-light areas, and their appearance varies depending on the host from which they emerge. They measure about 2.30 meters and usually weigh approximately 120 kilos.</p>
+            
+                <h3 id="praetorian">Praetorian</h3>
+                <p>With the appearance of a robust and large Xenomorph, the praetorian is often considered the growth state of a young alien queen. Its task in the hive is to protect the queen and her offspring, or to replace the queen in case she dies.</p>
+                <p>Praetorians are stronger and more resilient than drones, and possess greater intelligence. Their exoskeleton is thicker, providing better defense against attacks. Additionally, they have the ability to develop new attack and defense strategies, making them the most feared warriors of the hive.</p>
+                <p>When a praetorian is created, it feeds on the remains of the hosts that have been used to incubate other Xenomorphs. This provides them with the strength needed to grow quickly and assume their role in the hive's hierarchy.</p>
+                
+                <h2 id="lifecycle">Xenomorph Lifecycle</h2>
+                <div class="image-placeholder">
+                    <img src="https://static.wikia.nocookie.net/avp/images/3/39/Xeno_cycle.png/revision/latest?cb=20150921084818" alt="Xenomorph Lifecycle" />
+                </div>
+                <p>The life cycle of Xenomorphs is comparable in many ways to certain parasitoid insects found on Earth. However, the cycle is unique, particularly in how the Chestburster stage develops. Instead of simply being implanted as a fetus and growing inside the host, the Chestburster resembles more of a cancerous growth that assembles using the host's own cells and biological material as building blocks.</p>
+                <p>The life cycle of Xenomorphs consists of five main stages: the Ovomorph, the Facehugger, the Chestburster, the adult, and finally, the Queen. The adult stage can be subdivided into several forms or castes, each with different physical characteristics based on age, function, or the genetic composition of the host.</p>
+                
+                <p>A normal Xenomorph drone, like its other subspecies, follows the typical life cycle: first, it is an ovomorph, which is the egg state of a Xenomorph. This egg, upon sensing a resilient organism or one with good characteristics, opens and from it emerges the second stage, the Facehugger.</p>
+                <p>The lifespan of a Xenomorph depends on the stage it is in. In a state of catalepsy or cryogenics, its duration is indefinite; however, its biological clock starts ticking again once they are active.</p>
+            </article>
+            
+            <article id="technology">
+                <h2>Xenomorph Technologies and Adaptations</h2>
+                <p>Xenomorphs have proven to be intelligent but completely lacking in technological development or individuality. Throughout the series, these characters appear completely naked and incapable of creating tools.</p>
+                
+                <h3>Communication</h3>
+                <p>One of their means of communication is pheromones. With these, along with mental control, a queen can manage the other Xenomorphs in her hive. Similarly, the other Xenomorphs secrete a pheromone in gel form that serves as a marker to identify members of a hive. If members of a colony detect the aroma of the pheromones from a foreign Xenomorph, they instinctively identify this individual as an intruder and proceed to kill it.</p>
+                
+                <h3>Genetic Memory</h3>
+                <p>Xenomorphs possess genetic memory, which is passed down from their progenitors; a quality that allows them to inherit memories from previous generations.</p>
+                
+                <h3>Genetic Adaptability</h3>
+                <p>Also known as reflex DNA, meaning the ability to acquire, through some unknown mechanism of horizontal gene transfer, a portion of the DNA from the hosts in which they incubate; and thus assimilate some of the genetic and phenotypic characteristics of this organism. Generally, it is such a moderate portion of the host's genetic code that the change is practically imperceptible; however, at times the gene transfer is intense enough to even transform the creature's physiology.</p>
+                
+                <h3>Defenses and Physical Structure</h3>
+                <p>Their first defense is their exoskeleton, formed of mutated polarized silicon polysaccharides, which protects them from impacts, extreme temperatures, and even withstands prolonged periods in space. At the ends of their limbs, their exoskeleton ends in sharp points that function as claws and stingers.</p>
+                
+                <p>They use their long tail as a method of defense and attack, which ends in a sharp tip. Not all use it in combat, but when used, it is a lethal precision weapon with enough force to lift its victim once it has pierced them.</p>
+                
+                <h3>Jaws and Attacks</h3>
+                <p>Their complex jaw consists of upper incisors similar to those of humans, along with a pair of elongated canines. At first glance, the teeth of Xenomorphs do not appear to be made of calcium like those of terrestrial animals; they have a platinum-like appearance and notable resistance, capable of breaking hard materials like metals or rocks. This dentition is complemented by a second retractable jaw that comes from the esophagus, which Xenomorphs can strike with great speed.</p>
+                
+                <h3>Acid and Feeding</h3>
+                <p>Xenomorphs possess a type of unknown acid instead of blood, serving as a final defense mechanism. This acid is not only a method of defense but also allows them to feed on practically anything, dissolving ingested matter and transforming it into energy.</p>
+                
+                <h3>Resistance and Vulnerability</h3>
+                <p>They possess a pain tolerance that allows them to fight even when seriously injured. However, they have a weakness to firearms, Yautja technology, and generally any heavy weapon. Additionally, they have an instinctive fear of fire, preferring to escape at the slightest sign of combustion.</p>
+            </article>
+            
+            <article id="films">
+                <h2>Alien Franchise</h2>
+                <p>Alien is a media franchise of science fiction, horror, and action centered around the original series of films depicting the warrant officer Ellen Ripley (Sigourney Weaver) and her battles with an extraterrestrial life form, commonly known as the Alien ("Xenomorph"), as well as the series of prequels following the exploits of the android David 8 (Michael Fassbender) and the aliens known as the "Engineers."</p>
+                
+                <h3>Main Films</h3>
+                <p>Produced and distributed by 20th Century Studios, the series began with <strong>Alien</strong> (1979), directed by Ridley Scott, and was followed by three sequels: <strong>Aliens</strong> (1986), directed by James Cameron; <strong>Alien 3</strong> (1992), directed by David Fincher; and <strong>Alien Resurrection</strong> (1997), directed by Jean-Pierre Jeunet. Scott also directed the prequel series films <strong>Prometheus</strong> (2012) and <strong>Alien: Covenant</strong> (2017). This was followed by <strong>Alien: Romulus</strong> (2024), which is set between the first two films and was directed by Fede Álvarez.</p>
+                
+                <h3>Franchise Expansions</h3>
+                <p>The series has led to numerous novels, comics, video games, and an upcoming television series also titled <strong>Alien: Earth</strong>, developed by Scott for FX on Hulu, with Noah Hawley. It has inspired a series of spin-offs, the most notable being the <strong>Alien vs. Predator</strong> series, which combines the continuities of the Alien franchise with the Predator franchise and consists of two non-canonical films, as well as several comic series, books, and video games.</p>
+            </article>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container container-footer">
+            <div class="information">
+                <p class="title-footer">Information</p>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="newsletter">
+                <p class="title-footer">Subscribe to our Newsletter</p>
+                <form>
+                    <input type="email" placeholder="Your email" required />
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        let originalContent = document.getElementById('wiki-content').innerHTML; // Store original content
+
+        document.getElementById('search-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent traditional form submission
+            
+            const query = document.getElementById('search-input').value.trim(); // Get search value and trim spaces
+
+            if (query === "") {
+                alert("Please enter a search term."); // Alert if no search term
+                return; // Exit the function if no term
+            }
+
+            const regex = new RegExp(`(${query})`, 'gi'); // Create a regex to search for the term
+
+            // Highlight results
+            const highlightedContent = originalContent.replace(regex, '<span class="highlight">$1</span>');
+            
+            // Change only the main section's content
+            document.getElementById('wiki-content').innerHTML = highlightedContent;
+
+            // Show the reset button
+            document.getElementById('reset-button').style.display = 'inline-block';
+        });
+
+        document.getElementById('reset-button').addEventListener('click', function() {
+            document.getElementById('wiki-content').innerHTML = originalContent; // Restore original content
+            this.style.display = 'none'; // Hide the reset button
+            document.getElementById('search-input').value = ''; // Clear the search field
+        });
+    </script>
+</body>
+</html>
