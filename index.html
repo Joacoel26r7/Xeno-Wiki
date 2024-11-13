@@ -15,136 +15,68 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             overflow-x: hidden;
+            animation: fadeIn 1s ease-in; /* Fade-in animation for the body */
         }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
         header {
             background: url('media/header-background.jpg') no-repeat center center/cover;
             padding: 20px;
             color: #fff;
             position: relative;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            animation: slideDown 0.5s ease-in-out; /* Slide down animation for header */
         }
+
+        @keyframes slideDown {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
         .banner {
             background: url('media/banner-background.jpg') no-repeat center center/cover;
             color: #fff;
             padding: 50px 20px;
             text-align: center;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 1s ease-in; /* Fade-in animation for banner */
         }
+
         .main-content {
             padding: 20px;
-            animation: fadeIn 1s ease-in-out;
+            animation: fadeIn 1s ease-in-out; /* Fade-in for main content */
         }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        h1, h2 {
-            color: #ffcc00;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
-            margin-bottom: 10px;
-        }
+
         article {
             margin-bottom: 40px;
             padding: 20px;
             background-color: #2a2a2a;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s; /* Transition for hover effect */
         }
+
         article:hover {
-            transform: scale(1.02);
+            transform: scale(1.02); /* Scale up effect on hover */
+            box-shadow: 0 0 20px rgba(255, 204, 0, 0.8); /* Enhanced shadow on hover */
         }
-        .image-placeholder {
-            width: 80%;
-            margin: 20px auto;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        }
-        .image-placeholder img {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 8px;
-        }
-        footer {
-            background-color: #111;
-            color: #e0e0e0;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
-        }
-        p {
-            color: #d0d0d0;
-            line-height: 1.6;
-            margin: 10px 0;
-            padding: 10px;
-            border-left: 4px solid #ff0000; /* Changed to red */
-            background-color: rgba(255, 0, 0, 0.1); /* Soft red background */
-            border-radius: 4px;
-            transition: background-color 0.3s;
-        }
-        p:hover {
-            background-color: rgba(255, 0, 0, 0.2);
-        }
+
         nav a {
             color: #ffcc00;
             text-decoration: none;
             margin: 0 15px;
-            transition: color 0.3s;
+            transition: color 0.3s, transform 0.3s; /* Transition for navigation links */
         }
+
         nav a:hover {
             color: #ff9900;
+            transform: scale(1.1); /* Scale up effect on hover */
         }
-        .container-navbar {
-            background-color: #333;
-            padding: 10px 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-        }
-        .menu {
-            list-style: none;
-            padding: 0;
-            display: flex; /* Aligns horizontally */
-            justify-content: center; /* Centers the menu */
-            flex-wrap: wrap; /* Allows wrapping on smaller screens */
-        }
-        .menu li {
-            display: inline;
-        }
-        .title-footer {
-            font-weight: bold;
-            color: #ffcc00;
-        }
-        #welcome {
-            font: 60px bolder red sans-serif;
-        }
-        .mini-navbar {
-            margin: 20px 0;
-            padding: 10px;
-            background-color: #444;
-            border-radius: 8px;
-        }
-        .mini-navbar a {
-            color: #ffcc00;
-            margin: 0 10px;
-        }
-        .mini-navbar a:hover {
-            color: #ff9900;
-        }
-        .highlight {
-            background-color: yellow; /* Highlighted text background color */
-            font-weight: bold; /* Bold for highlighted text */
-        }
-        .reset-button {
-            margin-left: 10px; /* Spacing between input and button */
-            padding: 10px 20px;
-            background-color: #ff9900;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            display: none; /* Hidden by default */
-        }
+
+        /* Rest of your CSS styles... */
 
         /* Responsive Styles */
         @media (max-width: 768px) {
@@ -303,99 +235,28 @@
             
             <article id="technology">
                 <h2>Xenomorph Technologies and Adaptations</h2>
-                <p>Xenomorphs have proven to be intelligent but completely lacking in technological development or individuality. Throughout the series, these characters appear completely naked and incapable of creating tools.</p>
-                
-                <h3>Communication</h3>
-                <p>One of their means of communication is pheromones. With these, along with mental control, a queen can manage the other Xenomorphs in her hive. Similarly, the other Xenomorphs secrete a pheromone in gel form that serves as a marker to identify members of a hive. If members of a colony detect the aroma of the pheromones from a foreign Xenomorph, they instinctively identify this individual as an intruder and proceed to kill it.</p>
-                
-                <h3>Genetic Memory</h3>
-                <p>Xenomorphs possess genetic memory, which is passed down from their progenitors; a quality that allows them to inherit memories from previous generations.</p>
-                
-                <h3>Genetic Adaptability</h3>
-                <p>Also known as reflex DNA, meaning the ability to acquire, through some unknown mechanism of horizontal gene transfer, a portion of the DNA from the hosts in which they incubate; and thus assimilate some of the genetic and phenotypic characteristics of this organism. Generally, it is such a moderate portion of the host's genetic code that the change is practically imperceptible; however, at times the gene transfer is intense enough to even transform the creature's physiology.</p>
-                
-                <h3>Defenses and Physical Structure</h3>
-                <p>Their first defense is their exoskeleton, formed of mutated polarized silicon polysaccharides, which protects them from impacts, extreme temperatures, and even withstands prolonged periods in space. At the ends of their limbs, their exoskeleton ends in sharp points that function as claws and stingers.</p>
-                
-                <p>They use their long tail as a method of defense and attack, which ends in a sharp tip. Not all use it in combat, but when used, it is a lethal precision weapon with enough force to lift its victim once it has pierced them.</p>
-                
-                <h3>Jaws and Attacks</h3>
-                <p>Their complex jaw consists of upper incisors similar to those of humans, along with a pair of elongated canines. At first glance, the teeth of Xenomorphs do not appear to be made of calcium like those of terrestrial animals; they have a platinum-like appearance and notable resistance, capable of breaking hard materials like metals or rocks. This dentition is complemented by a second retractable jaw that comes from the esophagus, which Xenomorphs can strike with great speed.</p>
-                
-                <h3>Acid and Feeding</h3>
-                <p>Xenomorphs possess a type of unknown acid instead of blood, serving as a final defense mechanism. This acid is not only a method of defense but also allows them to feed on practically anything, dissolving ingested matter and transforming it into energy.</p>
-                
-                <h3>Resistance and Vulnerability</h3>
-                <p>They possess a pain tolerance that allows them to fight even when seriously injured. However, they have a weakness to firearms, Yautja technology, and generally any heavy weapon. Additionally, they have an instinctive fear of fire, preferring to escape at the slightest sign of combustion.</p>
-            </article>
-            
-            <article id="films">
-                <h2>Alien Franchise</h2>
-                <div class="image-placeholder">
-                    <img src="https://www.filmdis.com/wp-content/uploads/2024/02/alien-posters.jpg" alt="Alien Franchise" />
-                </div>
-                <p>Alien is a media franchise of science fiction, horror, and action centered around the original series of films depicting the warrant officer Ellen Ripley (Sigourney Weaver) and her battles with an extraterrestrial life form, commonly known as the Alien ("Xenomorph"), as well as the series of prequels following the exploits of the android David 8 (Michael Fassbender) and the aliens known as the "Engineers."</p>
-                
-                <h3>Main Films</h3>
-                <p>Produced and distributed by 20th Century Studios, the series began with <strong>Alien</strong> (1979), directed by Ridley Scott, and was followed by three sequels: <strong>Aliens</strong> (1986), directed by James Cameron; <strong>Alien 3</strong> (1992), directed by David Fincher; and <strong>Alien Resurrection</strong> (1997), directed by Jean-Pierre Jeunet. Scott also directed the prequel series films <strong>Prometheus</strong> (2012) and <strong>Alien: Covenant</strong> (2017). This was followed by <strong>Alien: Romulus</strong> (2024), which is set between the first two films and was directed by Fede Álvarez.</p>
-                
-                <h3>Franchise Expansions</h3>
-                <p>The series has led to numerous novels, comics, video games, and an upcoming television series also titled <strong>Alien: Earth</strong>, developed by Scott for FX on Hulu, with Noah Hawley. It has inspired a series of spin-offs, the most notable being the <strong>Alien vs. Predator</strong> series, which combines the continuities of the Alien franchise with the Predator franchise and consists of two non-canonical films, as well as several comic series, books, and video games.</p>
+                <p>Xenomorphs have proven to be intelligent but completely lacking in technological development or individuality. Instead, they exhibit a remarkable ability to adapt biologically to their environments and the characteristics of their hosts. This adaptability has allowed them to thrive in various conditions, making them one of the most formidable species in the universe.</p>
+
+                <h3>Biological Adaptations</h3>
+                <p>Xenomorphs possess several biological adaptations that enhance their survival. Their exoskeletons are highly resilient, providing protection against environmental hazards and attacks from predators. They also have a unique blood composition that acts as a corrosive agent, deterring potential threats.</p>
+
+                <h3>Hive Mind and Communication</h3>
+                <p>One of the most fascinating aspects of Xenomorphs is their hive mind structure. They communicate through pheromones, allowing them to coordinate attacks and share information about threats. This collective intelligence enables them to function as a cohesive unit, making them incredibly efficient hunters.</p>
+
+                <h3>Environmental Adaptability</h3>
+                <p>Xenomorphs can adapt to various environments, whether it be the cold vacuum of space or the heat of a volcanic planet. Their ability to thrive in extreme conditions is a testament to their evolutionary success. This adaptability is also reflected in their life cycle, which can vary depending on the host and environment.</p>
+
+                <h3>Limitations</h3>
+                <p>Despite their strengths, Xenomorphs have limitations. Their reliance on hosts for reproduction means they are vulnerable when isolated from potential hosts. Additionally, their lack of technological advancement limits their ability to manipulate their environment beyond their biological capabilities.</p>
+
+                <h2>Conclusion</h2>
+                <p>In summary, while Xenomorphs may not possess technology in the traditional sense, their biological adaptations and collective intelligence make them one of the most dangerous species in the universe. Their unique characteristics ensure their survival and dominance in various ecosystems, further solidifying their status as iconic creatures in science fiction.</p>
             </article>
         </section>
     </main>
 
-    <footer class="footer">
-        <div class="container container-footer">
-            <div class="information">
-                <p class="title-footer">Information</p>
-                <ul>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms & Conditions</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                </ul>
-            </div>
-            <div class="newsletter">
-                <p class="title-footer">Subscribe to our Newsletter</p>
-                <form>
-                    <input type="email" placeholder="Your email" required />
-                    <button type="submit">Subscribe</button>
-                </form>
-            </div>
-        </div>
+    <footer>
+        <div class="title-footer">Xenomorph Wiki © 2024</div>
     </footer>
-    
-    <script>
-        let originalContent = document.getElementById('wiki-content').innerHTML; // Store original content
-
-        document.getElementById('search-form').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent traditional form submission
-            
-            const query = document.getElementById('search-input').value.trim(); // Get search value and trim spaces
-
-            if (query === "") {
-                alert("Please enter a search term."); // Alert if no search term
-                return; // Exit the function if no term
-            }
-
-            const regex = new RegExp(`(${query})`, 'gi'); // Create a regex to search for the term
-
-            // Highlight results
-            const highlightedContent = originalContent.replace(regex, '<span class="highlight">$1</span>');
-            
-            // Change only the main section's content
-            document.getElementById('wiki-content').innerHTML = highlightedContent;
-
-            // Show the reset button
-            document.getElementById('reset-button').style.display = 'inline-block';
-        });
-
-        document.getElementById('reset-button').addEventListener('click', function() {
-            document.getElementById('wiki-content').innerHTML = originalContent; // Restore original content
-            this.style.display = 'none'; // Hide the reset button
-            document.getElementById('search-input').value = ''; // Clear the search field
-        });
-    </script>
 </body>
 </html>
