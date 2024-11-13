@@ -60,6 +60,7 @@
             font-weight: bold;
             cursor: pointer;
             transition: background-color 0.3s, transform 0.3s;
+            width: 100%; /* Full width for select and button */
         }
         button {
             background-color: #FFD700;
@@ -90,6 +91,28 @@
             0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
             40% { transform: translateY(-10px); }
             60% { transform: translateY(-5px); }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 2em; /* Smaller font size for smaller screens */
+            }
+            article {
+                padding: 15px; /* Reduced padding */
+            }
+            section {
+                padding: 15px; /* Reduced padding */
+            }
+        }
+
+        @media (max-width: 480px) {
+            h2 {
+                font-size: 1.5em; /* Even smaller font size for mobile */
+            }
+            select, button {
+                padding: 8px; /* Smaller padding for select and button */
+            }
         }
     </style>
 </head>

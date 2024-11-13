@@ -134,6 +134,23 @@
         nav a:hover {
             text-decoration: underline; /* Underline on hover */
         }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .image-gallery video, .image-gallery img {
+                width: 45%; /* Adjust width for smaller screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .image-gallery video, .image-gallery img {
+                width: 90%; /* Full width for mobile devices */
+            }
+
+            button {
+                width: 100%; /* Full width for buttons on mobile */
+            }
+        }
     </style>
 </head>
 <body>

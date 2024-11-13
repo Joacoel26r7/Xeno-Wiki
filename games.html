@@ -100,7 +100,35 @@
             margin: 0 15px; /* Spacing between links */
             font-size: 18px; /* Font size for links */
         }
-        
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 1.5em;
+            }
+            button {
+                width: 100%; /* Full width buttons on smaller screens */
+                margin: 10px 0; /* Vertical spacing between buttons */
+            }
+            .section {
+                padding: 15px; /* Reduce padding on smaller screens */
+            }
+            input[type="text"] {
+                width: calc(100% - 15px); /* Adjust input width */
+            }
+        }
+
+        @media (max-width: 480px) {
+            h2 {
+                font-size: 1.2em; /* Smaller heading size for very small screens */
+            }
+            .question {
+                padding: 8px; /* Reduce padding in questions */
+            }
+            #score {
+                font-size: 1.2em; /* Smaller score font */
+            }
+        }
     </style>
 </head>
 <body>
@@ -564,4 +592,3 @@
 
 </body>
 </html>
-

@@ -106,6 +106,7 @@
             padding: 0;
             display: flex; /* Aligns horizontally */
             justify-content: center; /* Centers the menu */
+            flex-wrap: wrap; /* Allows wrapping on smaller screens */
         }
         .menu li {
             display: inline;
@@ -143,6 +144,41 @@
             border-radius: 5px;
             cursor: pointer;
             display: none; /* Hidden by default */
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            header {
+                padding: 10px;
+            }
+            .banner {
+                padding: 30px 10px;
+            }
+            #welcome {
+                font: 40px bolder red sans-serif;
+            }
+            nav .menu {
+                flex-direction: column; /* Stack menu items vertically */
+                align-items: center; /* Center align items */
+            }
+            nav a {
+                margin: 10px 0; /* Add margin for vertical spacing */
+            }
+            .image-placeholder {
+                width: 90%; /* Increase width on smaller screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            #welcome {
+                font: 30px bolder red sans-serif;
+            }
+            h1, h2 {
+                font-size: 1.5em; /* Adjust heading sizes */
+            }
+            article {
+                padding: 15px; /* Reduce padding in articles */
+            }
         }
     </style>
 </head>
